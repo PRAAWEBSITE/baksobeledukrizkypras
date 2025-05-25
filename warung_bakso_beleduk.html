@@ -1,0 +1,1774 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warung Bakso Beleduk - Bakso Terlezat di Kota</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One:wght@400&family=Nunito:wght@300;400;600;700;800&family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #e74c3c;
+            --secondary-color: #f39c12;
+            --accent-color: #d35400;
+            --text-dark: #2c3e50;
+            --text-light: #7f8c8d;
+            --success-color: #27ae60;
+            --warning-color: #f1c40f;
+            --white: #ffffff;
+            --light-bg: #fdf6f0;
+            --shadow: 0 10px 30px rgba(231, 76, 60, 0.15);
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: linear-gradient(135deg, #fdf6f0, #fff5f5);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 5px 30px rgba(231, 76, 60, 0.1);
+            border-bottom: 3px solid var(--primary-color);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-family: 'Fredoka One', cursive;
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            text-shadow: 3px 3px 0px var(--secondary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            animation: logoGlow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes logoGlow {
+            0% { text-shadow: 3px 3px 0px var(--secondary-color), 0 0 20px rgba(231, 76, 60, 0.3); }
+            100% { text-shadow: 3px 3px 0px var(--secondary-color), 0 0 30px rgba(231, 76, 60, 0.6); }
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 1.1rem;
+            position: relative;
+            transition: color 0.3s ease;
+            padding: 10px 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 140px 0 100px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)" opacity="0.6"/><circle cx="80" cy="80" r="1.5" fill="rgba(255,255,255,0.1)" opacity="0.4"/><circle cx="50" cy="10" r="1" fill="rgba(255,255,255,0.1)" opacity="0.8"/><circle cx="90" cy="30" r="1.5" fill="rgba(255,255,255,0.1)" opacity="0.5"/><circle cx="10" cy="60" r="2" fill="rgba(255,255,255,0.1)" opacity="0.7"/></svg>') repeat;
+            animation: float 25s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            100% { transform: translate(-100px, -100px) rotate(360deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-family: 'Fredoka One', cursive;
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 4px 4px 8px rgba(0,0,0,0.3);
+            animation: heroTitle 1.2s ease-out;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        @keyframes heroTitle {
+            0% {
+                opacity: 0;
+                transform: translateY(-50px) scale(0.8);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out 0.9s both;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(45deg, var(--secondary-color), #e67e22);
+            color: white;
+            padding: 18px 35px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(243, 156, 18, 0.4);
+            border: 3px solid rgba(255,255,255,0.2);
+            font-family: 'Comic Neue', cursive;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(243, 156, 18, 0.6);
+            border-color: rgba(255,255,255,0.4);
+        }
+
+        .cta-secondary {
+            background: transparent;
+            border: 3px solid white;
+            color: white;
+        }
+
+        .cta-secondary:hover {
+            background: white;
+            color: var(--primary-color);
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: white;
+            padding: 60px 0;
+            margin: -50px 0 0 0;
+            position: relative;
+            z-index: 3;
+            border-radius: 30px 30px 0 0;
+            box-shadow: 0 -10px 30px rgba(0,0,0,0.1);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 2rem;
+            background: linear-gradient(135deg, #fff, #fdf6f0);
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(231, 76, 60, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .stat-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .stat-number {
+            font-family: 'Fredoka One', cursive;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: 'Fredoka One', cursive;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+            position: relative;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 4rem;
+            font-weight: 400;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 5px;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            border-radius: 10px;
+        }
+
+        /* Concept Section */
+        .concept-section {
+            background: linear-gradient(135deg, #fdf6f0, #fff5f5);
+        }
+
+        .concept-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 2rem;
+        }
+
+        .concept-card {
+            background: white;
+            padding: 3rem 2rem;
+            border-radius: 25px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            border: 3px solid transparent;
+        }
+
+        .concept-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(231, 76, 60, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .concept-card:hover::before {
+            left: 100%;
+        }
+
+        .concept-card:hover {
+            transform: translateY(-15px);
+            border-color: var(--primary-color);
+            box-shadow: 0 20px 50px rgba(231, 76, 60, 0.25);
+        }
+
+        .concept-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            display: block;
+            animation: bounce 2s infinite;
+        }
+
+        .concept-card h3 {
+            font-family: 'Comic Neue', cursive;
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+            font-weight: 700;
+        }
+
+        .concept-card p {
+            color: var(--text-light);
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+
+        /* Menu Section */
+        .menu-section {
+            background: white;
+        }
+
+        .menu-categories {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .category-btn {
+            padding: 12px 25px;
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 25px;
+            font-weight: 600;
+            color: var(--text-dark);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Comic Neue', cursive;
+        }
+
+        .category-btn.active,
+        .category-btn:hover {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 2rem;
+        }
+
+        .menu-item {
+            background: linear-gradient(135deg, #fff, #fdf6f0);
+            border-radius: 25px;
+            padding: 2.5rem;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: all 0.4s ease;
+            border: 3px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .menu-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(231, 76, 60, 0.05), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .menu-item:hover::before {
+            left: 100%;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-15px) scale(1.02);
+            border-color: var(--primary-color);
+            box-shadow: 0 25px 60px rgba(231, 76, 60, 0.2);
+        }
+
+        .menu-item img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin-bottom: 1.5rem;
+            border: 5px solid var(--primary-color);
+            box-shadow: 0 10px 30px rgba(231, 76, 60, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .menu-item:hover img {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .menu-item h3 {
+            font-family: 'Comic Neue', cursive;
+            font-size: 1.7rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+            font-weight: 700;
+        }
+
+        .menu-item p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+
+        .price {
+            font-family: 'Fredoka One', cursive;
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .menu-badges {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        .badge {
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .badge-bestseller {
+            background: linear-gradient(45deg, var(--primary-color), #c0392b);
+            color: white;
+            animation: pulse 2s infinite;
+        }
+
+        .badge-new {
+            background: linear-gradient(45deg, var(--success-color), #229954);
+            color: white;
+        }
+
+        .badge-spicy {
+            background: linear-gradient(45deg, #e74c3c, #c0392b);
+            color: white;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .order-btn {
+            background: linear-gradient(45deg, var(--success-color), #229954);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Comic Neue', cursive;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .order-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(39, 174, 96, 0.4);
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .testimonials-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="25" cy="25" r="2" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+            animation: float 30s infinite linear;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2.5rem;
+            border-radius: 20px;
+            text-align: center;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .testimonial-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--primary-color);
+        }
+
+        .stars {
+            color: var(--warning-color);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Location & Contact Section */
+        .contact-section {
+            background: var(--light-bg);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .contact-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 25px;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+
+        .contact-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-card h3 {
+            font-family: 'Comic Neue', cursive;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        /* Order Section */
+        .order-section {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .order-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="10" cy="10" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="90" cy="90" r="1.5" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+            animation: float 20s infinite linear;
+        }
+
+        .order-form {
+            max-width: 700px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            padding: 4rem;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            z-index: 2;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+            font-size: 1.1rem;
+            font-family: 'Comic Neue', cursive;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 18px 20px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 15px;
+            font-size: 1rem;
+            background: rgba(255, 255, 255, 0.9);
+            transition: all 0.3s ease;
+            font-family: 'Nunito', sans-serif;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            background: white;
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .order-button {
+            background: linear-gradient(45deg, var(--secondary-color), #e67e22);
+            color: white;
+            padding: 20px 50px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(243, 156, 18, 0.4);
+            font-family: 'Comic Neue', cursive;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .order-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 20px 50px rgba(243, 156, 18, 0.6);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            font-family: 'Comic Neue', cursive;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary-color);
+        }
+
+        .footer-section p,
+        .footer-section li {
+            margin-bottom: 0.8rem;
+            color: #bdc3c7;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-3px) scale(1.1);
+            box-shadow: 0 10px 25px rgba(231, 76, 60, 0.4);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #34495e;
+            color: #95a5a6;
+        }
+
+        /* Floating Elements */
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(45deg, #25d366, #128c7e);
+            color: white;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+            animation: bounce 2s infinite;
+            z-index: 1000;
+            text-decoration: none;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .floating-whatsapp:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.6);
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .concept-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+        }
+
+        /* Loading Animation */
+        .loading {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .loading.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(45deg, var(--accent-color), var(--primary-color));
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <i class="fas fa-fire"></i>
+                Bakso Beleduk
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home"><i class="fas fa-home"></i> Beranda</a></li>
+                <li><a href="#menu"><i class="fas fa-utensils"></i> Menu</a></li>
+                <li><a href="#konsep"><i class="fas fa-lightbulb"></i> Konsep</a></li>
+                <li><a href="#testimoni"><i class="fas fa-star"></i> Testimoni</a></li>
+                <li><a href="#order"><i class="fas fa-shopping-cart"></i> Pesan</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1><i class="fas fa-fire"></i> Warung Bakso Beleduk</h1>
+                <div class="hero-subtitle">🍜 Sensasi Bakso yang Meledak di Lidah! 🍜</div>
+                <p class="hero-description">Nikmati kelezatan bakso dengan konsep unik yang akan memanjakan lidah Anda. Dari bakso berisi keju meleleh hingga bakso lava pedas yang menggigit!</p>
+                <div class="cta-buttons">
+                    <a href="#menu" class="cta-button">
+                        <i class="fas fa-utensils"></i>
+                        Lihat Menu Spesial
+                    </a>
+                    <a href="#order" class="cta-button cta-secondary">
+                        <i class="fab fa-whatsapp"></i>
+                        Pesan Sekarang
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item loading">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <span class="stat-number" data-target="5000">0</span>
+                    <div class="stat-label">Pelanggan Puas</div>
+                </div>
+                <div class="stat-item loading">
+                    <div class="stat-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <span class="stat-number" data-target="50">0</span>
+                    <div class="stat-label">Porsi Per Hari</div>
+                </div>
+                <div class="stat-item loading">
+                    <div class="stat-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <span class="stat-number" data-target="7">0</span>
+                    <div class="stat-label">Tahun Berpengalaman</div>
+                </div>
+                <div class="stat-item loading">
+                    <div class="stat-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <span class="stat-number" data-target="4.9">0</span>
+                    <div class="stat-label">Rating Pelanggan</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="konsep" class="section concept-section">
+        <div class="container">
+            <h2 class="section-title">Konsep Bakso Unik Kami</h2>
+            <p class="section-subtitle">Inovasi rasa yang tidak akan Anda temukan di tempat lain!</p>
+            <div class="concept-grid">
+                <div class="concept-card loading">
+                    <span class="concept-icon">💥</span>
+                    <h3>Bakso Beleduk Original</h3>
+                    <p>Bakso daging sapi pilihan dengan isian keju mozarella premium yang meleleh saat digigit, memberikan sensasi "meledak" yang tak terlupakan di mulut Anda!</p>
+                </div>
+                <div class="concept-card loading">
+                    <span class="concept-icon">🌶️</span>
+                    <h3>Bakso Lava Pedas</h3>
+                    <p>Untuk para pecinta pedas! Bakso dengan isian sambal rahasia level 10 yang keluar seperti lava saat digigit. Dijamin bikin ketagihan!</p>
+                </div>
+                <div class="concept-card loading">
+                    <span class="concept-icon">🧀</span>
+                    <h3>Bakso Cheese Burst</h3>
+                    <p>Bakso jumbo premium dengan kombinasi 3 jenis keju berbeda (mozarella, cheddar, parmesan) yang meleleh sempurna dan mengeluarkan aroma menggoda.</p>
+                </div>
+                <div class="concept-card loading">
+                    <span class="concept-icon">🍄</span>
+                    <h3>Bakso Lohua Limekitchen </h3>
+                    <p>Menu premium eksklusif dengan isian jamur truffle import dan kaldu khusus yang dimasak selama 12 jam. Rasa mewah yang terjangkau!</p>
+                </div>
+                <div class="concept-card loading">
+                    <span class="concept-icon">🥩</span>
+                    <h3>Bakso Daging Wagyu</h3>
+                    <p>Kemewahan dalam satu gigitan! Bakso berbahan daging wagyu premium dengan tekstur yang lembut dan rasa yang tak tertandingi.</p>
+                </div>
+                <div class="concept-card loading">
+                    <span class="concept-icon">🌈</span>
+                    <h3>Bakso Rainbow Surprise</h3>
+                    <p>Bakso warna-warni dengan 5 rasa berbeda dalam satu mangkuk. Cocok untuk anak-anak dan Instagrammable!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="menu" class="section menu-section">
+        <div class="container">
+            <h2 class="section-title">Menu Favorit Pelanggan</h2>
+            <p class="section-subtitle">Pilihan terbaik yang sudah terbukti kelezatannya!</p>
+            
+            <div class="menu-categories">
+                <button class="category-btn active" data-category="all">
+                    <i class="fas fa-th"></i> Semua Menu
+                </button>
+                <button class="category-btn" data-category="bestseller">
+                    <i class="fas fa-fire"></i> Terlaris
+                </button>
+                <button class="category-btn" data-category="premium">
+                    <i class="fas fa-crown"></i> Premium
+                </button>
+                <button class="category-btn" data-category="spicy">
+                    <i class="fas fa-pepper-hot"></i> Pedas
+                </button>
+            </div>
+
+            <div class="menu-grid">
+                <div class="menu-item loading" data-category="bestseller">
+                    <div class="menu-badges">
+                        <span class="badge badge-bestseller">
+                            <i class="fas fa-fire"></i> Terlaris
+                        </span>
+                    </div>
+                    <img src="beleduk.jpg" alt="Bakso Beleduk Spesial">
+                    <h3>Bakso Beleduk Spesial</h3>
+                    <p>5 bakso beleduk original + mie kuning + sayuran segar + kerupuk pangsit + sambal khusus + kuah kaldu sapi murni</p>
+                    <div class="price">Rp 25.000</div>
+                    <button class="order-btn" onclick="addToOrder('Bakso Beleduk Spesial', 25000)">
+                        <i class="fas fa-cart-plus"></i> Pesan Sekarang
+                    </button>
+                </div>
+                
+                <div class="menu-item loading" data-category="bestseller spicy">
+                    <div class="menu-badges">
+                        <span class="badge badge-bestseller">
+                            <i class="fas fa-heart"></i> Favorit
+                        </span>
+                        <span class="badge badge-spicy">
+                            <i class="fas fa-fire"></i> Pedas
+                        </span>
+                    </div>
+                    <img src="lava.jpg" alt="Bakso Lava Pedas">
+                    <h3>Bakso Lava Pedas</h3>
+                    <p>1 Bakso Jumbo lava pedas level 8 + 4 bakso kecil + es teh manis + susu untuk penawar pedas</p>
+                    <div class="price">Rp 28.000</div>
+                    <button class="order-btn" onclick="addToOrder('Bakso Lava Pedas', 28000)">
+                        <i class="fas fa-cart-plus"></i> Pesan Sekarang
+                    </button>
+                </div>
+                
+                <div class="menu-item loading" data-category="premium">
+                    <div class="menu-badges">
+                        <span class="badge badge-new" style="background: linear-gradient(45deg, var(--secondary-color), #e67e22);">
+                            <i class="fas fa-crown"></i> Premium
+                        </span>
+                    </div>
+                    <img src="keju.jpg" alt="Bakso Cheese Burst">
+                    <h3>Bakso Cheese Burst</h3>
+                    <p>3 bakso cheese burst  + mie bihun + sayuran + kerupuk premium + kuah kaldu sapi wagyu</p>
+                    <div class="price">Rp 35.000</div>
+                    <button class="order-btn" onclick="addToOrder('Bakso Cheese Burst', 35000)">
+                        <i class="fas fa-cart-plus"></i> Pesan Sekarang
+                    </button>
+                </div>
+                
+                <div class="menu-item loading" data-category="premium">
+                    <div class="menu-badges">
+                        <span class="badge badge-new" style="background: linear-gradient(45deg, #9b59b6, #8e44ad);">
+                            <i class="fas fa-gem"></i> Eksklusif
+                        </span>
+                    </div>
+                    <img src="jamur.jpg" alt="Bakso Jamur Truffle">
+                    <h3>Bakso Lohua Limekitchen </h3>
+                    <p>8 Lohua Limekitchen + mie ramen premium + sayuran + telur omega + kerupuk truffle + kuah kaldu 12 jam</p>
+                    <div class="price">Rp 45.000</div>
+                    <button class="order-btn" onclick="addToOrder('Bakso Jamur Truffle Premium', 45000)">
+                        <i class="fas fa-cart-plus"></i> Pesan Sekarang
+                    </button>
+                </div>
+                
+                <div class="menu-item loading" data-category="bestseller">
+                    <div class="menu-badges">
+                        <span class="badge badge-new" style="background: linear-gradient(45deg, #e74c3c, #c0392b);">
+                            <i class="fas fa-heart"></i> Komplit
+                        </span>
+                    </div>
+                    <img src="beranak.jpg" alt="Bakso Beranak">
+                    <h3>Bakso Beranak</h3>
+                    <p>1Bakso Jumbo beranak  + 10 bakso kecil + sayuran + telur + kerupuk + minuman</p>
+                    <div class="price">Rp 32.000</div>
+                    <button class="order-btn" onclick="addToOrder('Bakso Mix Beleduk', 32000)">
+                        <i class="fas fa-cart-plus"></i> Pesan Sekarang
+                    </button>
+                </div>
+                
+                <div class="menu-item loading" data-category="bestseller">
+                    <div class="menu-badges">
+                        <span class="badge badge-new" style="background: linear-gradient(45deg, #f39c12, #e67e22);">
+                            <i class="fas fa-users"></i> Keluarga
+                        </span>
+                    </div>
+                    <img src="lengkap.jpg" alt="Paket Keluarga">
+                    <h3>Paket Keluarga Beleduk</h3>
+                    <p>10 bakso mix (beleduk + lava + cheese) + 2 porsi mie + sayuran + 2 telur + kerupuk + 2 es teh + 2 kerupuk tambahan</p>
+                    <div class="price">Rp 75.000</div>
+                    <button class="order-btn" onclick="addToOrder('Paket Keluarga Beleduk', 75000)">
+                        <i class="fas fa-cart-plus"></i> Pesan Sekarang
+                    </button>
+                </div>
+                
+                <div class="menu-item loading" data-category="premium">
+                    <div class="menu-badges">
+                        <span class="badge badge-new" style="background: linear-gradient(45deg, #2c3e50, #34495e);">
+                            <i class="fas fa-medal"></i> Wagyu
+                        </span>
+                    </div>
+                    <img src="wakgyu.jpg" alt="Bakso Wagyu Premium">
+                    <h3>Bakso Daging Wagyu</h3>
+                    <p>4 bakso daging wagyu premium + Daging Wagyu + sayuran organik + kerupuk premium</p>
+                    <div class="price">Rp 55.000</div>
+                    <button class="order-btn" onclick="addToOrder('Bakso Daging Wagyu', 55000)">
+                        <i class="fas fa-cart-plus"></i> Pesan Sekarang
+                    </button>
+                </div>
+                
+                <div class="menu-item loading" data-category="all">
+                    <div class="menu-badges">
+                        <span class="badge badge-new" style="background: linear-gradient(45deg, #e91e63, #ad1457);">
+                            <i class="fas fa-rainbow"></i> Unik
+                        </span>
+                    </div>
+                    <img src="geprek.jpg" alt="Bakso GEprek">
+                    <h3>Bakso Sambal Geprek</h3>
+                    <p>5 bakso warna-warni (merah, kuning, hijau, biru, ungu) dengan rasa berbeda + mie warna + sayuran + telur</p>
+                    <div class="price">Rp 30.000</div>
+                    <button class="order-btn" onclick="addToOrder('Bakso Rainbow Surprise', 30000)">
+                        <i class="fas fa-cart-plus"></i> Pesan Sekarang
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Menu Tambahan & Minuman</h2>
+            <p class="section-subtitle">Lengkapi pengalaman kuliner Anda!</p>
+            <div class="menu-grid">
+                <div class="menu-item loading">
+                    <img src="/mie ayam.jpg" alt="Mie Ayam Beleduk">
+                    <h3>Mie Ayam Beleduk</h3>
+                    <p>Mie ayam spesial dengan topping 3 bakso beleduk mini + ayam suwir + pangsit goreng + sayuran + kerupuk</p>
+                    <div class="price">Rp 22.000</div>
+                    <button class="order-btn" onclick="addToOrder('Mie Ayam Beleduk', 22000)">
+                        <i class="fas fa-cart-plus"></i> Pesan Sekarang
+                    </button>
+                </div>
+                
+                <div class="menu-item loading">
+                    <img src="es teh.jpg" alt="Es Teh Beleduk">
+                    <h3>Es Teh Beleduk Special</h3>
+                    <p>Es teh manis dengan popping boba rasa leci + jelly + susu kental manis + gula aren</p>
+                    <div class="price">Rp 12.000</div>
+                    <button class="order-btn" onclick="addToOrder('Es Teh Beleduk Special', 12000)">
+                        <i class="fas fa-cart-plus"></i> Pesan Sekarang
+                    </button>
+                </div>
+                
+                <div class="menu-item loading">
+                    <img src="pangsit.jpg" alt="Kerupuk Spesial">
+                    <h3>Pangsit Goreng</h3>
+                    <p>Pangsit gorem renyah dengan bumbu rahasia dan taburan keju parut + cabai bubuk</p>
+                    <div class="price">Rp 15.000</div>
+                    <button class="order-btn" onclick="addToOrder('Kerupuk Beleduk Jumbo', 15000)">
+                        <i class="fas fa-cart-plus"></i> Pesan Sekarang
+                    </button>
+                </div>
+                
+                <div class="menu-item loading">
+                    <img src="alpukat.jpg" alt="Jus Alpukat Beleduk">
+                    <h3>Jus Alpukat Beleduk</h3>
+                    <p>Jus alpukat segar dengan popping boba coklat + susu kental manis + es krim vanilla</p>
+                    <div class="price">Rp 18.000</div>
+                    <button class="order-btn" onclick="addToOrder('Jus Alpukat Beleduk', 18000)">
+                        <i class="fas fa-cart-plus"></i> Pesan Sekarang
+                    </button>
+                </div>
+                
+                <div class="menu-item loading">
+                    <img src="dimsum.jpg" alt="Dimsum Beleduk">
+                    <h3>Dimsum Beleduk</h3>
+                    <p>6 pcs dimsum isi udang dan daging ayam dengan saus sambal beleduk + mayones pedas</p>
+                    <div class="price">Rp 25.000</div>
+                    <button class="order-btn" onclick="addToOrder('Dimsum Beleduk', 25000)">
+                        <i class="fas fa-cart-plus"></i> Pesan Sekarang
+                    </button>
+                </div>
+                
+                <div class="menu-item loading">
+                    <img src="martabak mini.jpg" alt="Martabak Mini Beleduk">
+                    <h3>Martabak Mini Beleduk</h3>
+                    <p>4 pcs martabak mini isi daging dan sayuran dengan saus sambal beleduk yang nagih</p>
+                    <div class="price">Rp 20.000</div>
+                    <button class="order-btn" onclick="addToOrder('Martabak Mini Beleduk', 20000)">
+                        <i class="fas fa-cart-plus"></i> Pesan Sekarang
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimoni" class="section testimonials-section">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">Testimoni Pelanggan</h2>
+            <p class="section-subtitle" style="color: rgba(255,255,255,0.8);">Apa kata mereka tentang Bakso Beleduk?</p>
+            <div class="testimonials-grid">
+                <div class="testimonial-card loading">
+                    <div class="testimonial-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"Bakso Beleduknya beneran meledak di mulut! Kejunya meleleh sempurna. Udah langganan 2 tahun dan gak pernah bosan!"</p>
+                    <h4>- Sari Dewi, Kp.Lalang</h4>
+                </div>
+                
+                <div class="testimonial-card loading">
+                    <div class="testimonial-avatar">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"Bakso Lava Pedasnya mantap jiwa! Pedas tapi ada manisnya. Porsinya juga besar, bikin kenyang seharian."</p>
+                    <h4>- Andi Pratama, Setia Budi</h4>
+                </div>
+                
+                <div class="testimonial-card loading">
+                    <div class="testimonial-avatar">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"Anak-anak suka banget sama Bakso Rainbow! Warnanya lucu, rasanya juga beda-beda. Instagram worthy banget!"</p>
+                    <h4>- Lila Sari, Medan Sunggal</h4>
+                </div>
+                
+                <div class="testimonial-card loading">
+                    <div class="testimonial-avatar">
+                        <i class="fas fa-user-friends"></i>
+                    </div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"Paket keluarganya pas banget untuk makan bareng. Harganya worth it, rasanya juara. Pelayanannya juga ramah!"</p>
+                    <h4>- Keluarga Budi, Binjai</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section contact-section">
+        <div class="container">
+            <h2 class="section-title">Lokasi & Kontak</h2>
+            <p class="section-subtitle">Temukan kami atau hubungi untuk informasi lebih lanjut!</p>
+            <div class="contact-grid">
+                <div class="contact-card loading">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Alamat Warung</h3>
+                    <p><strong>Jl. Raya Amir Hamzah No. 13<br>
+                    Stabat, Langkat, Sumatera Utara 20762</strong></p>
+                    <p>Dekat dengan Sekolah YAPIM TARUNA Stabat</p>
+                </div>
+                
+                <div class="contact-card loading">
+                    <div class="contact-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Jam Operasional</h3>
+                    <p><strong>Setiap Hari:</strong><br>
+                    10.00 - 22.00 WIB</p>
+                    <p style="color: var(--primary-color); font-weight: 600;">Delivery tersedia hingga 21.30 WIB</p>
+                </div>
+                
+                <div class="contact-card loading">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h3>Kontak Kami</h3>
+                    <p><strong>WhatsApp:</strong> 0812-3456-7890<br>
+                    <strong>Telepon:</strong> (0341) 123-4567<br>
+                    <strong>Email:</strong> baksobeleduk7@gmail.com</p>
+                </div>
+                
+                <div class="contact-card loading">
+                    <div class="contact-icon">
+                        <i class="fas fa-shipping-fast"></i>
+                    </div>
+                    <h3>Layanan Delivery</h3>
+                    <p><strong>Area Delivery:</strong><br>
+                    Seluruh Kota Stabat,Binjai & sekitarnya</p>
+                    <p style="color: var(--success-color); font-weight: 600;">Gratis ongkir minimal order Rp 50.000</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="order" class="section order-section">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">Pesan Bakso Beleduk Sekarang!</h2>
+            <p class="section-subtitle" style="color: rgba(255,255,255,0.9);">Isi form di bawah dan pesanan akan langsung dikirim ke WhatsApp kami</p>
+            <div class="order-form">
+                <form id="orderForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">
+                                <i class="fas fa-user"></i> Nama Lengkap:
+                            </label>
+                            <input type="text" id="name" name="name" placeholder="Masukkan nama lengkap Anda" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">
+                                <i class="fab fa-whatsapp"></i> Nomor WhatsApp:
+                            </label>
+                            <input type="tel" id="phone" name="phone" placeholder="Contoh: 08123456789" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="menu">
+                            <i class="fas fa-utensils"></i> Pilih Menu Favorit:
+                        </label>
+                        <select id="menu" name="menu" required>
+                            <option value="">-- Pilih Menu Favorit Anda --</option>
+                            <optgroup label="🔥 Menu Terlaris">
+                                <option value="Bakso Beleduk Spesial - Rp 25.000">Bakso Beleduk Spesial - Rp 25.000</option>
+                                <option value="Bakso Mix Beleduk - Rp 32.000">Bakso Mix Beleduk - Rp 32.000</option>
+                                <option value="Paket Keluarga Beleduk - Rp 75.000">Paket Keluarga Beleduk - Rp 75.000</option>
+                            </optgroup>
+                            <optgroup label="🌶️ Menu Pedas">
+                                <option value="Bakso Lava Pedas - Rp 28.000">Bakso Lava Pedas - Rp 28.000</option>
+                            </optgroup>
+                            <optgroup label="👑 Menu Premium">
+                                <option value="Bakso Cheese Burst - Rp 35.000">Bakso Cheese Burst - Rp 35.000</option>
+                                <option value="Bakso Lohua Limekitchen - Rp 45.000">Bakso Lohua Limekitchen - Rp 45.000</option>
+                                <option value="Bakso Daging Wagyu - Rp 55.000">Bakso Daging Wagyu - Rp 55.000</option>
+                            </optgroup>
+                            <optgroup label="🌈 Menu Unik">
+                                <option value="Bakso Rainbow Surprise - Rp 30.000">Bakso Rainbow Surprise - Rp 30.000</option>
+                            </optgroup>
+                            <optgroup label="🍜 Menu Tambahan">
+                                <option value="Mie Ayam Beleduk - Rp 22.000">Mie Ayam Beleduk - Rp 22.000</option>
+                                <option value="Dimsum Beleduk - Rp 25.000">Dimsum Beleduk - Rp 25.000</option>
+                                <option value="Martabak Mini Beleduk - Rp 20.000">Martabak Mini Beleduk - Rp 20.000</option>
+                            </optgroup>
+                            <optgroup label="🥤 Minuman">
+                                <option value="Es Teh Beleduk Special - Rp 12.000">Es Teh Beleduk Special - Rp 12.000</option>
+                                <option value="Jus Alpukat Beleduk - Rp 18.000">Jus Alpukat Beleduk - Rp 18.000</option>
+                            </optgroup>
+                            <optgroup label="🍘 Snack">
+                                <option value="Kerupuk Beleduk Jumbo - Rp 15.000">Kerupuk Beleduk Jumbo - Rp 15.000</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="quantity">
+                                <i class="fas fa-sort-numeric-up"></i> Jumlah Porsi:
+                            </label>
+                            <input type="number" id="quantity" name="quantity" min="1" max="50" value="1" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="spicy_level">
+                                <i class="fas fa-pepper-hot"></i> Level Pedas:
+                            </label>
+                            <select id="spicy_level" name="spicy_level">
+                                <option value="Tidak Pedas">😊 Tidak Pedas</option>
+                                <option value="Level 1 - Sedikit Pedas">🌶️ Level 1 - Sedikit Pedas</option>
+                                <option value="Level 5 - Sedang" selected>🌶️🌶️ Level 5 - Sedang</option>
+                                <option value="Level 8 - Pedas">🌶️🌶️🌶️ Level 8 - Pedas</option>
+                                <option value="Level 10 - Extra Pedas">🔥 Level 10 - Extra Pedas</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="address">
+                            <i class="fas fa-map-marker-alt"></i> Alamat Pengiriman Lengkap:
+                        </label>
+                        <textarea id="address" name="address" rows="3" placeholder="Contoh: Jl. Raya Amir Hamzah No. 13 Stabat, Langkat, Sumatera Utara 20762. Patokan: Dekat Indomaret" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="notes">
+                            <i class="fas fa-sticky-note"></i> Catatan Khusus (Opsional):
+                        </label>
+                        <textarea id="notes" name="notes" rows="2" placeholder="Contoh: Keju extra banyak, mie tidak terlalu matang, bungkus terpisah, dll."></textarea>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="delivery_time">
+                                <i class="fas fa-clock"></i> Waktu Pengiriman:
+                            </label>
+                            <select id="delivery_time" name="delivery_time">
+                                <option value="Sekarang Juga">🚀 Sekarang Juga (30-45 menit)</option>
+                                <option value="1 Jam Lagi">⏰ 1 Jam Lagi</option>
+                                <option value="2 Jam Lagi">⏰ 2 Jam Lagi</option>
+                                <option value="Sore Hari (17:00)">🌅 Sore Hari (17:00)</option>
+                                <option value="Malam Hari (19:00)">🌙 Malam Hari (19:00)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="payment_method">
+                                <i class="fas fa-credit-card"></i> Metode Pembayaran:
+                            </label>
+                            <select id="payment_method" name="payment_method">
+                                <option value="Cash (Bayar di Tempat)">💵 Cash (Bayar di Tempat)</option>
+                                <option value="Transfer Bank">🏦 Transfer Bank</option>
+                                <option value="E-Wallet (OVO/DANA/GoPay)">📱 E-Wallet (OVO/DANA/GoPay)</option>
+                                <option value="QRIS">📲 QRIS</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+             <div style="text-align: center; margin-top: 2rem;">
+    <a href="https://wa.me/6281234567890?text=Halo%2C%20saya%20ingin%20melakukan%20pemesanan" target="_blank" class="order-button" style="display: inline-block; padding: 12px 24px; background-color: #25D366; color: white; text-decoration: none; border-radius: 6px; font-weight: bold;">
+        <i class="button"></i>
+        Kirim Pesanan ke WhatsApp
+    </a>
+    <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">
+        <i class="fas fa-info-circle"></i>
+        Pesanan akan langsung dikirim ke WhatsApp kami untuk konfirmasi
+    </p>
+</div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fas fa-fire"></i> Warung Bakso Beleduk</h3>
+                    <p>Warung bakso dengan konsep unik yang menghadirkan sensasi "meledak" di setiap gigitan. Berpengalaman lebih dari 7 tahun melayani pelanggan dengan cita rasa terbaik.</p>
+                    <div class="social-links">
+                        <a href="#" target="_blank">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" target="_blank">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                        <a href="#" target="_blank">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3><i class="fas fa-utensils"></i> Menu Populer</h3>
+                    <ul style="list-style: none;">
+                        <li>• Bakso Beleduk Spesial</li>
+                        <li>• Bakso Lava Pedas</li>
+                        <li>• Bakso Cheese Burst</li>
+                        <li>• Paket Keluarga Beleduk</li>
+                        <li>• Bakso Rainbow Surprise</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3><i class="fas fa-map-marker-alt"></i> Kontak & Lokasi</h3>
+                    <p><i class="fas fa-home"></i> Jl. Raya Amir Hamzah No. 13<br>
+                    Stabat, Langkat, Sumatera Utara 20762</p>
+                    <p><i class="fab fa-whatsapp"></i> WhatsApp: 0812-3456-7890</p>
+                    <p><i class="fas fa-phone"></i> Telepon: (0341) 123-4567</p>
+                    <p><i class="fas fa-envelope"></i> Email: info@baksobeleduk.com</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3><i class="fas fa-clock"></i> Jam Buka & Info</h3>
+                    <p><strong>Setiap Hari:</strong><br>
+                    10.00 - 22.00 WIB</p>
+                    <p><strong>Delivery:</strong><br>
+                    10.00 - 21.30 WIB</p>
+                    <p style="color: var(--secondary-color);"><i class="fas fa-shipping-fast"></i> <strong>Gratis Ongkir</strong><br>
+                    Minimal order Rp 50.000</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2024 Warung Bakso Beleduk. Dibuat dengan ❤️ untuk para pecinta bakso.</p>
+                <p>Semua hak dilindungi undang-undang. | <a href="#" style="color: var(--secondary-color);">Kebijakan Privasi</a> | <a href="#" style="color: var(--secondary-color);">Syarat & Ketentuan</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/6281361094715?text=Halo%20Bakso%20Beleduk!%20Saya%20ingin%20memesan%20bakso%20spesial%20Anda.%20Bisa%20info%20menu%20terbaru?" class="floating-whatsapp" target="_blank" title="Chat WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animated counter for stats
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-number');
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-target'));
+                const increment = target / 200;
+                let current = 0;
+                
+                const updateCounter = () => {
+                    if (current < target) {
+                        current += increment;
+                        if (target < 10) {
+                            counter.textContent = current.toFixed(1);
+                        } else {
+                            counter.textContent = Math.ceil(current).toLocaleString();
+                        }
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        if (target < 10) {
+                            counter.textContent = target.toFixed(1);
+                        } else {
+                            counter.textContent = target.toLocaleString();
+                        }
+                    }
+                };
+                
+                updateCounter();
+            });
+        }
+
+        // Menu category filtering
+        const categoryBtns = document.querySelectorAll('.category-btn');
+        const menuItems = document.querySelectorAll('.menu-item');
+
+        categoryBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                categoryBtns.forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                btn.classList.add('active');
+                
+                const category = btn.getAttribute('data-category');
+                
+                menuItems.forEach(item => {
+                    if (category === 'all' || item.getAttribute('data-category').includes(category)) {
+                        item.style.display = 'block';
+                        setTimeout(() => {
+                            item.style.opacity = '1';
+                            item.style.transform = 'translateY(0)';
+                        }, 100);
+                    } else {
+                        item.style.opacity = '0';
+                        item.style.transform = 'translateY(30px)';
+                        setTimeout(() => {
+                            item.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            });
+        });
+
+        // Order form submission
+        document.getElementById('orderForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const menu = document.getElementById('menu').value;
+            const quantity = document.getElementById('quantity').value;
+            const spicyLevel = document.getElementById('spicy_level').value;
+            const address = document.getElementById('address').value;
+            const notes = document.getElementById('notes').value;
+            const deliveryTime = document.getElementById('delivery_time').value;
+            const paymentMethod = document.getElementById('payment_method').value;
+            
+            // Calculate estimated total (simplified)
+            const menuPrice = parseInt(menu.split('Rp ')[1]?.split('.')[0]?.replace(',', '') || '0');
+            const totalPrice = menuPrice * parseInt(quantity);
+            const deliveryFee = totalPrice >= 50000 ? 0 : 5000;
+            const grandTotal = totalPrice + deliveryFee;
+            
+            const message = `🍜 *PESANAN BAKSO BELEDUK* 🍜\n\n` +
+                `👤 *Nama:* ${name}\n` +
+                `📱 *WhatsApp:* ${phone}\n` +
+                `🍲 *Menu:* ${menu}\n` +
+                `🔢 *Jumlah:* ${quantity} porsi\n` +
+                `🌶️ *Level Pedas:* ${spicyLevel}\n` +
+                `🏠 *Alamat:* ${address}\n` +
+                `⏰ *Waktu Pengiriman:* ${deliveryTime}\n` +
+                `💳 *Pembayaran:* ${paymentMethod}\n` +
+                `📝 *Catatan:* ${notes || 'Tidak ada'}\n\n` +
+                `💰 *RINCIAN HARGA:*\n` +
+                `• Menu: ${quantity} x Rp ${menuPrice.toLocaleString()} = Rp ${totalPrice.toLocaleString()}\n` +
+                `• Ongkir: ${deliveryFee === 0 ? 'GRATIS!' : 'Rp ' + deliveryFee.toLocaleString()}\n` +
+                `• *Total: Rp ${grandTotal.toLocaleString()}*\n\n` +
+                `Terima kasih telah memesan di Warung Bakso Beleduk! 🙏\n` +
+                `Kami akan segera memproses pesanan Anda. 🚀`;
+            
+            const whatsappUrl = `https://wa.me/6281361094715?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+            
+            // Show success message
+            alert('🎉 Pesanan berhasil dibuat! Anda akan diarahkan ke WhatsApp untuk konfirmasi.');
+        });
+
+        // Add to order function for individual menu items
+        function addToOrder(menuName, price) {
+            // Pre-fill the form with selected menu
+            document.getElementById('menu').value = `${menuName} - Rp ${price.toLocaleString()}`;
+            
+            // Scroll to order section
+            document.getElementById('order').scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+            
+            // Highlight the form briefly
+            const form = document.querySelector('.order-form');
+            form.style.transform = 'scale(1.02)';
+            form.style.boxShadow = '0 25px 80px rgba(243, 156, 18, 0.4)';
+            
+            setTimeout(() => {
+                form.style.transform = 'scale(1)';
+                form.style.boxShadow = '0 20px 60px rgba(0,0,0,0.2)';
+            }, 500);
+        }
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                    
+                    // Trigger counter animation when stats section is visible
+                    if (entry.target.closest('.stats-section')) {
+                        animateCounters();
+                    }
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements with loading class
+        document.querySelectorAll('.loading').forEach(item => {
+            observer.observe(item);
+        });
+
+        // Add sparkle effect to bestseller badges
+        setInterval(() => {
+            document.querySelectorAll('.badge-bestseller').forEach(badge => {
+                badge.style.transform = 'scale(1.1)';
+                setTimeout(() => {
+                    badge.style.transform = 'scale(1)';
+                }, 200);
+            });
+        }, 4000);
+
+        // Floating animation for hero background
+        const hero = document.querySelector('.hero::before');
+        
+        // Mobile menu toggle (if needed)
+        const mobileMenuBtn = document.createElement('button');
+        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+        mobileMenuBtn.classList.add('mobile-menu-btn');
+        mobileMenuBtn.style.cssText = `
+            display: none;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            cursor: pointer;
+        `;
+        
+        // Add mobile menu styles
+        if (window.innerWidth <= 768) {
+            mobileMenuBtn.style.display = 'block';
+            document.querySelector('nav').appendChild(mobileMenuBtn);
+            
+            mobileMenuBtn.addEventListener('click', () => {
+                const navLinks = document.querySelector('.nav-links');
+                navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+                navLinks.style.flexDirection = 'column';
+                navLinks.style.position = 'absolute';
+                navLinks.style.top = '100%';
+                navLinks.style.left = '0';
+                navLinks.style.right = '0';
+                navLinks.style.background = 'white';
+                navLinks.style.padding = '1rem';
+                navLinks.style.boxShadow = '0 5px 20px rgba(0,0,0,0.1)';
+            });
+        }
+
+        // Add loading screen
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '0';
+            setTimeout(() => {
+                document.body.style.transition = 'opacity 0.5s ease';
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+
+        // Preload important images
+        const images = [
+            '/api/placeholder/120/120'
+        ];
+        
+        images.forEach(src => {
+            const img = new Image();
+            img.src = src;
+        });
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.backdropFilter = 'blur(20px)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.backdropFilter = 'blur(20px)';
+            }
+        });
+    </script>
+</body>
+</html>
